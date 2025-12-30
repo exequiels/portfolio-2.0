@@ -1,9 +1,9 @@
 'use client'
 import { Card } from 'primereact/card'
 import { Tag } from 'primereact/tag'
-import CertificationTable from './CetificationTable'
+import CertificationTable from './tables/CetificationTable'
 import { miData } from '@/data/miData'
-import GeminiForm from '../forms/GeminiForm'
+import GeminiForm from './forms/GeminiForm'
 import { Image } from 'primereact/image'
 import { Dialog } from 'primereact/dialog'
 import { useState } from 'react'
@@ -93,9 +93,9 @@ const Curriculum = ({ className }: { className: string }) => {
         ))}
       </Card>
 
-      <Card title="Bidirectional Role Fit Checker">
-        This is a standard proof of concept. It sends structured information to
-        an AI service to generate a preliminary compatibility insight. Nothing
+      <Card title="Bidirectional Role Fit Agent">
+        This is a proof of concept. It sends structured information to an AI
+        service to generate a preliminary compatibility insight. Nothing
         definitive and nothing out of the ordinary, just a modern workflow
         prototype.
         <ul className="list-disc mt-5 pl-5">
@@ -116,7 +116,7 @@ const Curriculum = ({ className }: { className: string }) => {
           />
         </div>
         <Dialog
-          header="Compatibility"
+          header="Compatibility Mediator"
           visible={visibleForm}
           style={{ width: '50vw' }}
           breakpoints={{ '1280px': '75vw', '600px': '100vw' }}
