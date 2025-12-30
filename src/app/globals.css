@@ -32,6 +32,15 @@ p {
   padding: 0;
 }
 
+.linkedin-button {
+  width: 3rem !important;
+  height: 3rem !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
 /* body {
   background-color: var(--bg);
   color: var(--color);

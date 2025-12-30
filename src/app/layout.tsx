@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import 'primereact/resources/themes/saga-green/theme.css'
+import 'primereact/resources/themes/mira/theme.css'
 import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
 
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="">{children}</body>
+      <body>{children}</body>
     </html>
   )
 }

@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "generative-ai": "^0.1.4",
     "next": "16.1.1",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.7",
