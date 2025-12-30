@@ -8,17 +8,17 @@ export const certifications: Certifications[] = [
   {
     id: 1,
     name: 'National University of La Pampa Certificate - Web Layout with HTML 5 and CSS',
-    url: 'url1',
+    url: './files/Certificado UNLPAM - Maquetación web con HTML 5 y CSS.pdf',
   },
   {
     id: 2,
     name: 'National University of La Pampa Certificate - Advanced JavaScript Developer',
-    url: 'url2',
+    url: './files/Certificado UNLPAM - JavaScript Desarrollador Avanzado.pdf',
   },
   {
     id: 3,
     name: 'National University of La Pampa Certificate - Web Programming with PHP and MySQL',
-    url: 'url3',
+    url: './files/Certificado UNLPAM - Programación Web con PHP y MySQL.pdf',
   },
   {
     id: 4,
