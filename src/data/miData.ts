@@ -41,6 +41,16 @@ export const miData = {
       impact: 'Independent income stream for 2+ years',
     },
     {
+      name: 'AI-Powered Portfolio & Mediator Agent',
+      summary:
+        'Personal portfolio enhanced with an AI mediator that evaluates role compatibility based on job descriptions, work mode, and technology stack. Designed to simulate an initial technical screening between recruiters and my profile.',
+      stack:
+        'Next.js 16, React 19, TypeScript, Tailwind CSS, PrimeReact, Google Gemini API',
+      impact:
+        'Live product | AI-assisted role fit evaluation | https://www.sabatie.com.ar/',
+      tags: ['AI', 'Screening', 'LLM', 'Product Thinking', 'Frontend', 'Cloud'],
+    },
+    {
       name: 'Collaborative Task Lists',
       summary:
         'A list generator that lets users create, share, and complete tasks collaboratively. Lists are created in seconds and auto-expire after 24 hours to keep workflows lightweight and focused.',
