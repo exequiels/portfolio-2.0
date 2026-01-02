@@ -7,6 +7,8 @@ import { MultiSelect } from 'primereact/multiselect'
 import { SelectButton } from 'primereact/selectbutton'
 import { useEffect, useState } from 'react'
 import { optionsStack } from '../utils/optionsStacks'
+import MarkDownRenderer from '../utils/MarkDownRenderer'
+import { miData } from '@/data/miData'
 
 type FormData = {
   // salary: number | null
@@ -18,6 +20,7 @@ type FormData = {
 const GeminiForm = () => {
   const [response, setResponse] = useState('')
   const [loading, setLoading] = useState(false)
+  const [isValidAnalysis, setIsValidAnalysis] = useState(false)
 
   const [formData, setFormData] = useState<FormData>({
     // salary: null,
@@ -35,6 +38,8 @@ const GeminiForm = () => {
 
   const handleCheck = async () => {
     setErrors({ stack: '', description: '' })
+    setResponse('')
+    setIsValidAnalysis(false)
 
     let hasError = false
 
@@ -57,8 +62,11 @@ const GeminiForm = () => {
     try {
       const result = await geminiService.analyzeJobOffer(formData)
       setResponse(result)
+      const isValid = !result.includes('Invalid Job Description')
+      setIsValidAnalysis(isValid)
     } catch (e) {
       setResponse('Error connecting to API')
+      setIsValidAnalysis(false)
     }
     setLoading(false)
   }
@@ -118,6 +126,7 @@ const GeminiForm = () => {
           options={optionsModalidad}
           onChange={(e) => setFormData({ ...formData, modalidad: e.value })}
           className="w-full mt-1"
+          disabled={loading}
         />
       </div>
       <div>
@@ -141,6 +150,7 @@ const GeminiForm = () => {
           display="chip"
           filter
           filterPlaceholder="Search..."
+          disabled={loading}
         />
         {errors.stack && <small className="p-error">{errors.stack}</small>}
       </div>
@@ -159,6 +169,7 @@ const GeminiForm = () => {
           placeholder="Pls a short description of the project, work enviroment, team, hours, salary and anything related ..."
           className="w-full mt-1"
           maxLength={5000}
+          disabled={loading}
         />
         {errors.description && (
           <small className="p-error">{errors.description}</small>
@@ -186,7 +197,26 @@ const GeminiForm = () => {
       {response && (
         <div className="mt-4 p-4 border border-gray-300 rounded bg-gray-50">
           <h3 className="font-bold mb-2">AI Analysis:</h3>
-          <p className="whitespace-pre-wrap">{response}</p>
+          <MarkDownRenderer content={response} className="max-w-full" />
+          {isValidAnalysis && (
+            <div className="flex justify-end mt-4">
+              <Button
+                onClick={() =>
+                  window.open(
+                    `https://${miData.contact.linkedin}`,
+                    '_blank',
+                    'noopener,noreferrer'
+                  )
+                }
+                outlined
+                text
+                raised
+                className="linkedin-button"
+              >
+                <i className="pi pi-linkedin" style={{ fontSize: '2rem' }} />
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </div>

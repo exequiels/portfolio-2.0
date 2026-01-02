@@ -1,6 +1,6 @@
 'use client'
 
-import Curriculum from '@/components/tables/Curriculum'
+import Curriculum from '@/components/Curriculum'
 import { miData } from '@/data/miData'
 import { Button } from 'primereact/button'
 
