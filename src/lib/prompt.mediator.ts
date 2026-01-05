@@ -1,48 +1,23 @@
-import { NextResponse } from 'next/server'
-import { GoogleGenerativeAI } from '@google/generative-ai'
-import fs from 'fs'
-import path from 'path'
-import { githubService } from '@/services/github.service'
-
-async function getLocalProfile() {
-  try {
-    const dataPath = path.join(process.cwd(), 'src/data')
-    const experience = fs.readFileSync(path.join(dataPath, 'miData.ts'), 'utf8')
-    const certifications = fs.readFileSync(
-      path.join(dataPath, 'certifications.ts'),
-      'utf8'
-    )
-    const preferences = fs.readFileSync(
-      path.join(dataPath, 'preferences.ts'),
-      'utf8'
-    )
-    return { experience, certifications, preferences }
-  } catch (e) {
-    console.error('Error reading local files:', e)
-    return { experience: '', certifications: '', preferences: '' }
-  }
+type MediatorType = {
+  experience: string
+  certifications: string
+  preferences: string
+  githubData: string
+  modalidad: string
+  stack: string[]
+  description: string
 }
 
-async function getGithubProjects() {
-  const token = process.env.GITHUB_TOKEN
-  const username = 'exequiels'
-  return await githubService.getPortfolioProjects(username, token)
-}
-
-export async function POST(req: Request) {
-  const apiKey = process.env.GEMINI_API_KEY
-  if (!apiKey)
-    return NextResponse.json({ error: 'API Key missing' }, { status: 500 })
-
-  try {
-    const { formData } = await req.json()
-    const { experience, certifications, preferences } = await getLocalProfile()
-    const githubData = await getGithubProjects()
-
-    const genAI = new GoogleGenerativeAI(apiKey)
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' })
-
-    const systemPrompt = `
+export function mediatorPrompt({
+  experience,
+  certifications,
+  preferences,
+  githubData,
+  modalidad,
+  stack,
+  description,
+}: MediatorType) {
+  return `
       You are a senior technical recruiter with experience evaluating job offers for Full Stack developers focused on AWS, Node.js, React, and cloud-based environments.
 
       # VALIDATION STEP ONE (CRITICAL - DO THIS FIRST):
@@ -84,9 +59,9 @@ export async function POST(req: Request) {
       ---
 
       # JOB OFFER DATA TO EVALUATE:
-      - **Work modality:** ${formData.modalidad}
-      - **Required technologies:** ${formData.stack.join(', ')}
-      - **Description:** ${formData.description}
+      - **Work modality:** ${modalidad}
+      - **Required technologies:** ${stack.join(', ')}
+      - **Description:** ${description}
 
       ---
 
@@ -101,15 +76,4 @@ export async function POST(req: Request) {
         - **IF SCORE 50% - 84%:** "High Potential / Strategic Fit. While there is a slight mismatch in [mention specific gap], Exequiel's solid foundation in [mention key strength] ensures a fast learning curve. We recommend an exploratory interview to discuss how his experience can be adapted to this role. Contact Exequiel on LinkedIn."
         - **IF SCORE < 50%:** "Complementary Profile. Although not a direct technical match for this specific vacancy, Exequiel's trajectory in the industry suggests he could provide significant value in related or more senior strategic roles. We suggest connecting on LinkedIn to keep him in mind for future opportunities."
 `
-
-    const result = await model.generateContent(systemPrompt)
-    const text = result.response.text()
-
-    return NextResponse.json({ text })
-  } catch (error: unknown) {
-    console.error('Error en Gemini:', error)
-    const message = error instanceof Error ? error.message : 'Unknown error'
-
-    return NextResponse.json({ error: message }, { status: 500 })
-  }
 }
