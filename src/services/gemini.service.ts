@@ -4,15 +4,16 @@ export const geminiService = {
     stack: string[]
     description: string
   }) {
-    const res = await fetch('/api/gemini', {
+    const res = await fetch('/api/mediator', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ formData }),
     })
 
-    if (!res.ok) throw new Error('Failed to analyze')
-
     const data = await res.json()
+    if (!res.ok) {
+      throw new Error(data?.error ?? 'API error')
+    }
     return data.text
   },
 }

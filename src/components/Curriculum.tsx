@@ -50,6 +50,22 @@ const Curriculum = ({ className }: { className: string }) => {
         </div>
       </Card>
 
+      <Card title="Experience">
+        {miData.experience.map((job, i) => (
+          <div key={i} className="mb-3">
+            <h3 className="font-bold">
+              {job.role} – {job.company}
+            </h3>
+            <p className="text-sm italic">{job.period}</p>
+            <ul className="list-disc ml-5 text-sm">
+              {job.impact.map((line, j) => (
+                <li key={j}>{line}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </Card>
+
       <Card title="Certifications" className="min-h-[400px]">
         <CertificationTable />
       </Card>
@@ -73,22 +89,6 @@ const Curriculum = ({ className }: { className: string }) => {
             <p className="text-sm">
               <strong>Impact:</strong> {project.impact}
             </p>
-          </div>
-        ))}
-      </Card>
-
-      <Card title="Experience">
-        {miData.experience.map((job, i) => (
-          <div key={i} className="mb-3">
-            <h3 className="font-bold">
-              {job.role} – {job.company}
-            </h3>
-            <p className="text-sm italic">{job.period}</p>
-            <ul className="list-disc ml-5 text-sm">
-              {job.impact.map((line, j) => (
-                <li key={j}>{line}</li>
-              ))}
-            </ul>
           </div>
         ))}
       </Card>

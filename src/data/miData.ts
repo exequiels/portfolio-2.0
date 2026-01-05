@@ -17,7 +17,6 @@ export const miData = {
     'Node.js',
     'Laravel',
     'TypeScript',
-    'Docker',
     'AWS (EC2, S3, RDS)',
     'MySQL',
     'CI/CD',

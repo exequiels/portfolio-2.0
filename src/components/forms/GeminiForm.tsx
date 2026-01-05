@@ -56,6 +56,14 @@ const GeminiForm = () => {
       hasError = true
     }
 
+    if (formData.description.length > 0 && formData.description.length < 30) {
+      setErrors((prev) => ({
+        ...prev,
+        description: 'Description too short (min 30 chars)',
+      }))
+      hasError = true
+    }
+
     if (hasError) return
 
     setLoading(true)
@@ -65,7 +73,9 @@ const GeminiForm = () => {
       const isValid = !result.includes('Invalid Job Description')
       setIsValidAnalysis(isValid)
     } catch (e) {
-      setResponse('Error connecting to API')
+      const message = e instanceof Error ? e.message : 'Unexpected error'
+
+      setResponse(message)
       setIsValidAnalysis(false)
     }
     setLoading(false)
@@ -168,7 +178,8 @@ const GeminiForm = () => {
           rows={5}
           placeholder="Pls a short description of the project, work enviroment, team, hours, salary and anything related ..."
           className="w-full mt-1"
-          maxLength={5000}
+          maxLength={3000}
+          minLength={30}
           disabled={loading}
         />
         {errors.description && (
