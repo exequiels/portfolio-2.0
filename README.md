@@ -19,6 +19,15 @@ Instead of free-form Q&A, the interaction is structured through:
 - A job description input where the recruiter is asked to provide:
   - A short description of the project, work environment, team setup, working hours, salary range, and any other relevant details.
 
+The meadiator searches my Github readme for this tags:
+
+```
+<!-- PORTFOLIO_DATA_START
+PORTFOLIO_DATA_END -->
+```
+
+Yo can check this readme code at the bottom you can find what the mediator reads.
+
 Based on this input, the mediator performs an objective compatibility analysis against my technical background, experience, certifications, and documented projects.
 
 ### Mediator Response Structure
@@ -96,7 +105,7 @@ This decision alloweds me to gain experience since I actually did the deployment
 Checking our deployed App
 
 - Overeview
-  We can check our deployed App, visit the generated url, etc. We can also set a domain using Route53 or our hosting preference, I tried to set it up to www.sabatie.com.ar creating a CNAME record in my Hostinguer so I could keep emails since i'ts a cheap service but FreeTier has i'ts limitations so thats why we moved to Vercel. To configure this in Vercel is quite similar.
+  We can check our deployed App, visit the generated url, etc. We can also set a domain using Route53 or our hosting preference, I tried to set it up to www.sabatie.com.ar creating a CNAME record in my Hostinguer so I could keep emails since i'ts a cheap service but _FreeTier has i'ts limitations_ so thats why we moved to Vercel. To configure this in Vercel is quite similar.
   ![Overview](./public/docs/overview.png)
 
 ---
