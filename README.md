@@ -61,6 +61,10 @@ However, for this specific project I encountered limitations related to:
 
 Since this is a personal profile and not a production-scale system, I decided to avoid unnecessary infrastructure complexity and $$$.
 
+## Primereact, Primeflex + NextJS
+
+- I noticed that I've used a lot of PrimeReact for React projects and PrimeFlex since they are ideal for dashboards. Sadly, PrimeFlex and PrimeReact don't complement each other very well with Next.js. For this project, I swapped from PrimeFlex to Tailwind CSS, but in my future Next.js projects I'll go with another UI library.
+
 ### Solution
 
 I migrated the project to **Vercel**, which provided:
@@ -126,6 +130,7 @@ Checking our deployed App
 - rehype-raw: Enabled the parsing and rendering of raw HTML elements embedded within Markdown content.
 - rehype-sanitize: Secured the application by stripping dangerous code (XSS protection) from rendered HTML.
 - Tailwind Typography: Applied the prose class to automatically style raw HTML/Markdown with professional layouts.
+- Primereact and primeflex don't complement very well with NextJS, better to use another UI Library.
 **Highlights:**
 - AI mediator agent powered by Gemini API
 - Type-safe AI responses using TypeScript interfaces
