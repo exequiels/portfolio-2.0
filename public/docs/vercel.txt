@@ -1,0 +1,14 @@
+PS C:\Users\User> nslookup www.sabatie.com.ar
+Servidor:  UnKnown
+Address:  192.168.1.1
+
+*** UnKnown no encuentra www.sabatie.com.ar: Non-existent domain
+PS C:\Users\User> nslookup www.sabatie.com.ar 8.8.8.8
+Servidor:  dns.google
+Address:  8.8.8.8
+
+Respuesta no autoritativa:
+Nombre:  e147b0b6e32455f9.vercel-dns-017.com
+Addresses:  216.198.79.65
+          64.29.17.65
+Aliases:  www.sabatie.com.ar
