@@ -19,7 +19,7 @@ Instead of free-form Q&A, the interaction is structured through:
 - A job description input where the recruiter is asked to provide:
   - A short description of the project, work environment, team setup, working hours, salary range, and any other relevant details.
 
-The meadiator searches my **Github readmes** for this tags:
+The Mediator searches my **Github readmes** for this tags:
 
 ```
 <!-- PORTFOLIO_DATA_START
