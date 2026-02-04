@@ -99,7 +99,7 @@ const Curriculum = ({ className }: { className: string }) => {
         definitive and nothing out of the ordinary, just a modern workflow
         prototype.
         <ul className="list-disc mt-5 pl-5">
-          <li>You submit role details (tasks, stack, salary range). </li>
+          <li>You submit role details (tasks, stack, salary range, etc..).</li>
           <li>I match them against my skills and experience.</li>
           <li>
             The system returns a preliminary fit summary (strengths, gaps,
