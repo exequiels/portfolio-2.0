@@ -46,7 +46,7 @@ export const miData = {
       stack:
         'Next.js 16, React 19, TypeScript, Tailwind CSS, PrimeReact, Google Gemini API',
       impact:
-        'Live product | AI-assisted role fit evaluation | https://www.sabatie.com.ar/',
+        'Live product | AI-assisted role fit evaluation | https://portfolio.sabatie.com.ar/',
       tags: ['AI', 'Screening', 'LLM', 'Product Thinking', 'Frontend', 'Cloud'],
     },
     {
