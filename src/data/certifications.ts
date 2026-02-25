@@ -85,4 +85,9 @@ export const certifications: Certifications[] = [
     name: 'AWS Educate Introduction to Generative AI - Training Badge',
     url: 'https://www.credly.com/badges/6690d2b8-8b57-4d27-b0d6-44de989acc96/public_url',
   },
+  {
+    id: 17,
+    name: 'AWS Knowledge: Cloud Essentials - Training Badge',
+    url: 'https://www.credly.com/badges/0fd4d8d6-79be-4400-a692-105ab5760c5d/public_url',
+  },
 ]
