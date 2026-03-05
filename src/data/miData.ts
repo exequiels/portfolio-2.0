@@ -69,15 +69,16 @@ export const miData = {
   ],
   experience: [
     {
-      role: 'Full Stack Developer',
-      company: 'BIM & ACC Project Management',
+      role: 'Full Stack Developer – BIM & ACC Project Management',
+      company: 'Enarvi · External Contractor for Amazon Enterprise',
       period: '2021 - Present',
       impact: [
-        'Built from scratch with a small team using pure PHP, HTML, CSS, MySQL, and Bootstrap.',
-        'Integrated Autodesk APIs for BIM 360 and ACC to manage projects, tickets, permissions, and user activity.',
-        'Platform acquired by a corporate construction group; continued as part of the development team.',
-        'Collaborated during the rewrite to React + AWS (ECR, EC2, RDS, S3) to modernize architecture and scale usage.',
-        'Currently responsible for system expansion, new feature development, maintenance, and support.',
+        'Assigned full-time as external contractor to Amazon enterprise initiatives, working on production-grade systems at scale.',
+        'Built platform from scratch using PHP, HTML, CSS, MySQL, and Bootstrap; integrated Autodesk APIs for BIM 360 and ACC to manage projects, tickets, permissions, and user activity.',
+        'Platform acquired by an internal Amazon group; onboarded as external developer and continued as part of the core team.',
+        'Collaborated on full architecture rewrite to React + AWS (ECR, EC2, RDS, S3).',
+        'Work within trunk-based development workflows with mandatory peer reviews and automated CI/CD pipelines.',
+        'Currently responsible for feature development, system expansion, maintenance, and operational reliability.',
         'Contact references available upon request.',
       ],
     },
