@@ -30,6 +30,7 @@ const GeminiForm = () => {
   })
 
   const [errors, setErrors] = useState({
+    modalidad: '',
     stack: '',
     description: '',
   })
@@ -37,11 +38,16 @@ const GeminiForm = () => {
   const optionsModalidad = ['Remote', 'Hybrid', 'On-Site']
 
   const handleCheck = async () => {
-    setErrors({ stack: '', description: '' })
+    setErrors({ modalidad: '', stack: '', description: '' })
     setResponse('')
     setIsValidAnalysis(false)
 
     let hasError = false
+
+    if (!formData.modalidad) {
+      setErrors((prev) => ({ ...prev, modalidad: 'Please choose a work mode' }))
+      hasError = true
+    }
 
     if (formData.stack.length === 0) {
       setErrors((prev) => ({ ...prev, stack: 'Please choose a stack' }))
@@ -134,10 +140,18 @@ const GeminiForm = () => {
         <SelectButton
           value={formData.modalidad}
           options={optionsModalidad}
-          onChange={(e) => setFormData({ ...formData, modalidad: e.value })}
+          onChange={(e) => {
+            setFormData({ ...formData, modalidad: e.value })
+            if (errors.modalidad && e.value) {
+              setErrors((prev) => ({ ...prev, modalidad: '' }))
+            }
+          }}
           className="w-full mt-1"
           disabled={loading}
         />
+        {errors.modalidad && (
+          <small className="p-error">{errors.modalidad}</small>
+        )}
       </div>
       <div>
         <label className="font-semibold">Tech Stack</label>
@@ -216,7 +230,7 @@ const GeminiForm = () => {
                   window.open(
                     `https://${miData.contact.linkedin}`,
                     '_blank',
-                    'noopener,noreferrer'
+                    'noopener,noreferrer',
                   )
                 }
                 outlined
