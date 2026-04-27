@@ -3,14 +3,14 @@ import { Card } from 'primereact/card'
 import { Tag } from 'primereact/tag'
 import CertificationTable from './tables/CetificationTable'
 import { miData } from '@/data/miData'
-import GeminiForm from './forms/GeminiForm'
+// import GeminiForm from './forms/GeminiForm'
 import { Image } from 'primereact/image'
-import { Dialog } from 'primereact/dialog'
-import { useState } from 'react'
-import { Button } from 'primereact/button'
+// import { Dialog } from 'primereact/dialog'
+// import { useState } from 'react'
+// import { Button } from 'primereact/button'
 
 const Curriculum = ({ className }: { className: string }) => {
-  const [visibleForm, setVisibleForm] = useState(false)
+  // const [visibleForm, setVisibleForm] = useState(false)
 
   return (
     <div className={`${className} flex flex-col gap-6`}>
@@ -93,7 +93,7 @@ const Curriculum = ({ className }: { className: string }) => {
         ))}
       </Card>
 
-      <Card title="Bidirectional Role Fit Agent">
+      {/* <Card title="Bidirectional Role Fit Agent">
         This is a proof of concept. It sends structured information to an AI
         service to generate a preliminary compatibility insight. Nothing
         definitive and nothing out of the ordinary, just a modern workflow
@@ -128,7 +128,7 @@ const Curriculum = ({ className }: { className: string }) => {
         >
           <GeminiForm />
         </Dialog>
-      </Card>
+      </Card> */}
     </div>
   )
 }
