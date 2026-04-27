@@ -90,4 +90,9 @@ export const certifications: Certifications[] = [
     name: 'AWS Knowledge: Cloud Essentials - Training Badge',
     url: 'https://www.credly.com/badges/0fd4d8d6-79be-4400-a692-105ab5760c5d/public_url',
   },
+  {
+    id: 18,
+    name: 'National University of La Pampa Certificate - Web Programming with PHP and MySQL',
+    url: '.https://certificates.epam.com/api/certificates/79f40956-f1ec-49ca-8809-51c114401190/pdf',
+  },
 ]
