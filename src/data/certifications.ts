@@ -92,7 +92,7 @@ export const certifications: Certifications[] = [
   },
   {
     id: 18,
-    name: 'National University of La Pampa Certificate - Web Programming with PHP and MySQL',
-    url: '.https://certificates.epam.com/api/certificates/79f40956-f1ec-49ca-8809-51c114401190/pdf',
+    name: 'EPAM - Cloud&Automation tools',
+    url: 'https://certificates.epam.com/api/certificates/79f40956-f1ec-49ca-8809-51c114401190/pdf',
   },
 ]
